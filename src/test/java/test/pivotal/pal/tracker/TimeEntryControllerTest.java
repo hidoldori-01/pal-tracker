@@ -33,7 +33,7 @@ public class TimeEntryControllerTest {
         long userId = 456L;
         TimeEntry timeEntryToCreate = new TimeEntry(projectId, userId, LocalDate.parse("2017-01-08"), 8);
 
-        long timeEntryId = 1L;
+        long timeEntryId = 5L;
         TimeEntry expectedResult = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2017-01-08"), 8);
         doReturn(expectedResult)
             .when(timeEntryRepository)
@@ -110,6 +110,9 @@ public class TimeEntryControllerTest {
 
     @Test
     public void testUpdate_NotFound() {
+        long timeEntryId = 1L;
+        long projectId = 987L;
+        long userId = 654L;
         long nonExistentTimeEntryId = 1L;
         doReturn(null)
             .when(timeEntryRepository)
